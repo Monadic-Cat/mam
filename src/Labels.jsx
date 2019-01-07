@@ -57,8 +57,8 @@ class Label extends Component {
 class Labels extends Component {
 	render() {
 		return (
-			<div className="Labels">
-			<table>
+			<div>
+			<table className="Labels">
 			<tbody>
 				<Label name="Danger" />
 				<Label name="Freak" />
