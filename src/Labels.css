@@ -1,0 +1,13 @@
+table, .Label, .Label-Cell {
+	border: 1px solid black;
+}
+
+.Label-Cell {
+	width: 25px;
+	height: 25px;
+	text-align: center;
+}
+
+.selected-cell {
+	background-color: grey;
+}
