@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { range } from 'lodash';
 
 class HarmBox extends Component {
 	render() {
@@ -12,12 +13,7 @@ class Harm extends Component {
 	render() {
 		return (
 			<div className="Harm">
-				<HarmBox />
-				<HarmBox />
-				<HarmBox />
-				<HarmBox />
-				<HarmBox />
-				<HarmBox />
+				{range(0, 6).map(x => <HarmBox key={x} />)}
 			</div>
 		);
 	}
