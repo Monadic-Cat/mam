@@ -16,11 +16,10 @@ class Potential extends Component {
 	}
 
 	render() {
-		var a = 0;
 		return (
 			<div className="Potential">
 			<table><tbody><tr>
-			{group(this.state.amount, 5).map(x => <td key={a++}>{x}</td>)}
+			{group(this.state.amount, 5).map((x,i) => <td key={i}>{x}</td>)}
 			</tr></tbody></table>
 			</div>
 		);
