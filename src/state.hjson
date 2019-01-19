@@ -1,0 +1,34 @@
+{
+	name: Nira YaLae
+	labels: [
+		{
+			name: Danger
+			value: -1
+		}
+		{
+			name: Freak
+			value: 3
+		}
+		{
+			name: Savior
+			value: -2
+		}
+		{
+			name: Superior
+			value: 3
+		}
+		{
+			name: Mundane
+			value: 2
+		}
+	]
+	labelOrder: {
+		Danger: 0
+		Freak: 1
+		Savior: 2
+		Superior: 3
+		Mundane: 4
+	}
+	potential: 15
+	harm: 0
+}
