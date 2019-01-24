@@ -1,6 +1,7 @@
 import {
 	ADD_LABEL, REMOVE_LABEL, SET_LABEL,
-	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME } from './actions';
+	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
+	SET_CONDITION } from './actions';
 
 export default function characterReducer(previousState, action) {
 	let state = { ...previousState };
@@ -28,7 +29,9 @@ export default function characterReducer(previousState, action) {
 		case SET_NAME:
 			state.name = action.name;
 			break;
+		case SET_CONDITION:
+			state.conditions[state.conditionOrder[action.name]].marked = action.marked;
+			break;
 	}
 	return state;
 }
-

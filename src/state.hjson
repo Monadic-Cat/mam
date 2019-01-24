@@ -1,5 +1,9 @@
 {
+	player: jmn
 	name: Nira YaLae
+	heroName: Envy
+	playbook: The Outsider
+	powers: Radical Shapeshifting, Telepathy and Mind Blasts, Power Mimicry, Power Negation
 	labels: [
 		{
 			name: Danger
@@ -30,5 +34,34 @@
 		Mundane: 4
 	}
 	potential: 15
+	conditions: [
+		{
+			name: Afraid
+			marked: false
+		}
+		{
+			name: Angry
+			marked: false
+		}
+		{
+			name: Guilty
+			marked: false
+		}
+		{
+			name: Hopeless
+			marked: false
+		}
+		{
+			name: Insecure
+			marked: false
+		}
+	]
+	conditionOrder: {
+		Afraid: 0
+		Angry: 1
+		Guilty: 2
+		Hopeless: 3
+		Insecure: 4
+	}
 	harm: 0
 }

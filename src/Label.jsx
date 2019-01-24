@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
-import { SET_LABEL } from './actions';
+import { setLabel } from './actions';
 
 class LabelCell extends Component {
 	onhover = (e) => {
@@ -27,14 +27,10 @@ class LabelCell extends Component {
 class Label extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			selected: props.selected.value
-		};
 	}
 	handleClick = (n) => {
-		this.setState({
-			selected: n
-		});
+		this.props.setLabel(this.props.name, n);
+		//this.props.dispatch(setLabel(this.props.name, n))
 	}
 	render() {
 		return (
@@ -44,7 +40,7 @@ class Label extends Component {
 				range(-2, 4).map(
 					x =>
 						<LabelCell
-							selected={this.state.selected === x} key={x}
+							selected={this.props.selected === x} key={x}
 							onClick={() => this.handleClick(x)}
 						>
 							{x}
@@ -56,9 +52,13 @@ class Label extends Component {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => ({
-		selected: state.labels[state.labelOrder[ownProps.name]]
-})
-const mapDispatchToProps = { SET_LABEL }
+const mapStateToProps = (state, ownProps) => {
+	//Get this label from state.
+	let a = state.labels[state.labelOrder[ownProps.name]];
+	return {
+		selected: a.value
+	};
+}
+const mapDispatchToProps = { setLabel }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Label)

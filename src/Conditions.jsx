@@ -1,29 +1,8 @@
 import React, { Component } from 'react';
+import Condition from './Condition';
 import './Conditions.css';
 
-class Condition extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			marked: false
-		};
-	}
-	handleClick = () => {
-		this.setState((state, props) => ({
-			marked: !state.marked
-		}));
-	}
-	render() {
-		return (
-			<td
-				className={"Condition" + (this.state.marked ? " marked-condition":"")}
-				onClick={() => this.handleClick()}
-			>
-				{this.props.name}
-			</td>
-		);
-	}
-}
+
 
 class Conditions extends Component {
 	render() {
@@ -42,4 +21,3 @@ class Conditions extends Component {
 }
 
 export default Conditions;
-

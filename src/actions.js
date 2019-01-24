@@ -4,7 +4,7 @@ export const SET_LABEL = 'SET_LABEL';
 export const CHANGE_HARM = 'CHANGE_HARM';
 export const CHANGE_POTENTIAL = 'CHANGE_POTENTIAL';
 export const SET_NAME = 'SET_NAME';
-
+export const SET_CONDITION = 'SET_CONDITION';
 
 export function setLabel(name, value) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
@@ -53,3 +53,10 @@ export function setName(name) {
 	};
 }
 
+export function setCondition(name, marked = true) {
+	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
+	return {
+		type: SET_CONDITION,
+		name, marked
+	}
+}

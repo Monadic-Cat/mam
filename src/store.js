@@ -4,5 +4,3 @@ import characterReducer from './reducers';
 import defaultState from './state';
 
 export const store = createStore(characterReducer, defaultState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-console.log(store);
-
