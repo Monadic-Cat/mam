@@ -11,7 +11,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<CharacterName name="Nira YaLae" />
+				<CharacterName />
 				<Labels />
 				<Conditions />
 				<Potential />
