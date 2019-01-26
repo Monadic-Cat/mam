@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { range } from 'lodash';
+import { changeHarm } from './actions';
 
 class HarmBox extends Component {
 	render() {
@@ -10,15 +12,34 @@ class HarmBox extends Component {
 }
 
 class Harm extends Component {
+	handleClick = event => {
+		switch (event.target.name) {
+			case "increment":
+				this.props.changeHarm(1);
+				break;
+			case "decrement":
+				this.props.changeHarm(-1);
+				break;
+			default:
+				console.log("Um.");
+		}
+	}
 	render() {
 		return (
 			<div className="Harm">
-				<h3> Harm </h3>
-				{range(0, 6).map(x => <HarmBox key={x} />)}
+				Harm:
+					<button onClick={this.handleClick} name="increment">+</button>
+					{this.props.amount}
+					<button onClick={this.handleClick} name="decrement">-</button>
 			</div>
 		);
 	}
 }
 
-export default Harm;
+const mapStateToProps = state => ({
+	amount: state.harm
+})
 
+const mapDispatchToProps = { changeHarm }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Harm)
