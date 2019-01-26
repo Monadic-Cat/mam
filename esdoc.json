@@ -2,6 +2,7 @@
 	"source": "./src",
 	"destination": "./docs",
 	"includes": ["\\.js$","\\.jsx$"],
+	"excludes": ["serviceWorker.js"],
 	"plugins": [
 		{"name": "esdoc-standard-plugin"},
 		{"name": "esdoc-jsx-plugin"},
