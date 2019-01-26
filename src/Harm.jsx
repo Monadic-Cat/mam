@@ -3,14 +3,6 @@ import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changeHarm } from './actions';
 
-class HarmBox extends Component {
-	render() {
-		return (
-			<input type="checkbox" />
-		);
-	}
-}
-
 class Harm extends Component {
 	handleClick = event => {
 		switch (event.target.name) {

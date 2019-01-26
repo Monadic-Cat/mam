@@ -25,9 +25,6 @@ class LabelCell extends Component {
 }
 
 class Label extends Component {
-	constructor(props) {
-		super(props);
-	}
 	handleClick = (n) => {
 		this.props.setLabel(this.props.name, n);
 		//this.props.dispatch(setLabel(this.props.name, n))
