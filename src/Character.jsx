@@ -25,7 +25,7 @@ class CharacterName extends Component {
 				/>
 			</span>
 			<br/>
-			<span>Character Hero Name:
+			<span>Hero Name:
 				<input
 					onChange={this.handleChange}
 					value={this.props.heroName}
