@@ -1,5 +1,13 @@
 import { range } from 'lodash';
 
+/**
+ * makeLabelLine
+ *
+ * @param {object}	label - `label` object with `.name` and `.value` attributes.
+ *
+ * @return {string}
+ *
+ */
 function makeLabelLine(label) {
 	let line = `**${label.name}:** `;
 	line +=
@@ -8,14 +16,34 @@ function makeLabelLine(label) {
 	return line;
 }
 
+/**
+ * makeLabelSheet
+ *
+ * @param {array}	labels - List of labels (Freak, Danger, Savior, ...)
+ * with `.name` and `.value` attributes.
+ *
+ * @return {string}
+ *
+ */
 function makeLabelSheet(labels) {
 	return labels.elements.map(makeLabelLine).join("\n");
 }
-
+/**
+ * Generate Markdown from conditions.
+ * @param {array} conditions -
+ * List of conditions (Hopeless, Insecure, ...) with `.name` and `.marked`
+ * attributes.
+ * @return {string}
+ */
 function makeConditionsLine(conditions) {
 	return conditions.elements.map(x => x.marked ? `**${x.name}**`:`${x.name}`).join(" | ");
 }
-
+/**
+ * Generate Markdown from a character state.
+ * @param {object} state - Character state
+ *
+ * @return {string} sheet
+ */
 function makeSheet(state) {
 	return [
 		`**Player Name:** ${state.player}`
