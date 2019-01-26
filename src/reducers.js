@@ -11,7 +11,7 @@ export default function characterReducer(previousState, action) {
 			state.labels.push({ name: action.name, value: action.value });
 			break;
 		case SET_LABEL:
-			state.labels[state.labelOrder[action.name]].value = action.value;
+			state.labels.elements[state.labels.order[action.name]].value = action.value;
 			break;
 		case REMOVE_LABEL:
 			let mark = state.labelOrder[action.name];
@@ -30,7 +30,7 @@ export default function characterReducer(previousState, action) {
 			state.name = action.name;
 			break;
 		case SET_CONDITION:
-			state.conditions[state.conditionOrder[action.name]].marked = action.marked;
+			state.conditions.elements[state.conditions.order[action.name]].marked = action.marked;
 			break;
 	}
 	return state;

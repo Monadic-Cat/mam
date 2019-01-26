@@ -54,7 +54,7 @@ class Label extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 	//Get this label from state.
-	let a = state.labels[state.labelOrder[ownProps.name]];
+	let a = state.labels.elements[state.labels.order[ownProps.name]];
 	return {
 		selected: a.value
 	};

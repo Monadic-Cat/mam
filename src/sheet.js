@@ -9,11 +9,11 @@ function makeLabelLine(label) {
 }
 
 function makeLabelSheet(labels) {
-	return labels.map(makeLabelLine).join("\n");
+	return labels.elements.map(makeLabelLine).join("\n");
 }
 
 function makeConditionsLine(conditions) {
-	return conditions.map(x => x.marked ? `**${x.name}**`:`${x.name}`).join(" | ");
+	return conditions.elements.map(x => x.marked ? `**${x.name}**`:`${x.name}`).join(" | ");
 }
 
 function makeSheet(state) {

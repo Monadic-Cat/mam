@@ -4,64 +4,68 @@
 	heroName: Envy
 	playbook: The Outsider
 	powers: Radical Shapeshifting, Telepathy and Mind Blasts, Power Mimicry, Power Negation
-	labels: [
-		{
-			name: Danger
-			value: -1
+	labels: {
+		elements: [
+			{
+				name: Danger
+				value: -1
+			}
+			{
+				name: Freak
+				value: 3
+			}
+			{
+				name: Savior
+				value: -2
+			}
+			{
+				name: Superior
+				value: 3
+			}
+			{
+				name: Mundane
+				value: 2
+			}
+		]
+		order: {
+			Danger: 0
+			Freak: 1
+			Savior: 2
+			Superior: 3
+			Mundane: 4
 		}
-		{
-			name: Freak
-			value: 3
-		}
-		{
-			name: Savior
-			value: -2
-		}
-		{
-			name: Superior
-			value: 3
-		}
-		{
-			name: Mundane
-			value: 2
-		}
-	]
-	labelOrder: {
-		Danger: 0
-		Freak: 1
-		Savior: 2
-		Superior: 3
-		Mundane: 4
 	}
 	potential: 15
-	conditions: [
-		{
-			name: Afraid
-			marked: false
+	conditions: {
+		elements: [
+			{
+				name: Afraid
+				marked: false
+			}
+			{
+				name: Angry
+				marked: false
+			}
+			{
+				name: Guilty
+				marked: false
+			}
+			{
+				name: Hopeless
+				marked: false
+			}
+			{
+				name: Insecure
+				marked: false
+			}
+		]
+		order: {
+			Afraid: 0
+			Angry: 1
+			Guilty: 2
+			Hopeless: 3
+			Insecure: 4
 		}
-		{
-			name: Angry
-			marked: false
-		}
-		{
-			name: Guilty
-			marked: false
-		}
-		{
-			name: Hopeless
-			marked: false
-		}
-		{
-			name: Insecure
-			marked: false
-		}
-	]
-	conditionOrder: {
-		Afraid: 0
-		Angry: 1
-		Guilty: 2
-		Hopeless: 3
-		Insecure: 4
 	}
 	harm: 0
 }

@@ -28,7 +28,7 @@ class Condition extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	let a = state.conditions[state.conditionOrder[ownProps.name]];
+	let a = state.conditions.elements[state.conditions.order[ownProps.name]];
 	return {
 		marked: a.marked
 	};
