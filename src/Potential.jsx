@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { range } from 'lodash';
+import { changePotential } from './actions';
 
 function group(n, groupSize) {
 	let groups = range(0, n / groupSize | 0).map(x => groupSize);
@@ -8,23 +10,45 @@ function group(n, groupSize) {
 }
 
 class Potential extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			amount: 15
-		};
+	handleClick = event => {
+		switch (event.target.name) {
+			case "increment":
+				this.props.changePotential(1);
+				break;
+			case "decrement":
+				this.props.changePotential(-1);
+				break;
+			default:
+				console.log("Um.");
+		}
 	}
-
 	render() {
 		return (
 			<div className="Potential">
 			<table><tbody><tr>
-			{group(this.state.amount, 5).map((x,i) => <td key={i}>{x}</td>)}
+			<td>
+				<button
+					onClick={this.handleClick}
+					name="increment"
+				>+</button>
+				<br/>
+				<button
+					onClick={this.handleClick}
+					name="decrement"
+				>-</button>
+			</td>
+			<td>Potential:</td>
+			{group(this.props.amount, 5).map((x,i) => <td key={i}>{x}</td>)}
 			</tr></tbody></table>
 			</div>
 		);
 	}
 }
 
-export default Potential;
+const mapStateToProps = state => ({
+	amount: state.potential
+})
 
+const mapDispatchToProps = { changePotential }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Potential);
