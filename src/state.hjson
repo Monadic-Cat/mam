@@ -1,30 +1,30 @@
 {
-	player: jmn
-	name: Nira YaLae
-	heroName: Envy
+	player: ""
+	name: ""
+	heroName: ""
 	playbook: The Outsider
 	powers: Radical Shapeshifting, Telepathy and Mind Blasts, Power Mimicry, Power Negation
 	labels: {
 		elements: [
 			{
 				name: Danger
-				value: -1
+				value: 0
 			}
 			{
 				name: Freak
-				value: 3
+				value: 0
 			}
 			{
 				name: Savior
-				value: -2
+				value: 0
 			}
 			{
 				name: Superior
-				value: 3
+				value: 0
 			}
 			{
 				name: Mundane
-				value: 2
+				value: 0
 			}
 		]
 		order: {
@@ -35,7 +35,6 @@
 			Mundane: 4
 		}
 	}
-	potential: 15
 	conditions: {
 		elements: [
 			{
@@ -67,5 +66,6 @@
 			Insecure: 4
 		}
 	}
+	potential: 0
 	harm: 0
 }
