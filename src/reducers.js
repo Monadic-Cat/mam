@@ -1,7 +1,8 @@
 import {
 	ADD_LABEL, REMOVE_LABEL, SET_LABEL,
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
-	SET_PLAYER_NAME, SET_HERO_NAME, SET_CONDITION } from './actions';
+	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
+	SET_POWERS, SET_CONDITION } from './actions';
 
 export default function characterReducer(previousState, action) {
 	let state = { ...previousState };
@@ -40,6 +41,12 @@ export default function characterReducer(previousState, action) {
 			break;
 		case SET_HERO_NAME:
 			state.heroName = action.name;
+			break;
+		case SET_PLAYBOOK_NAME:
+			state.playbook = action.name;
+			break;
+		case SET_POWERS:
+			state.powers = action.names;
 			break;
 		case SET_CONDITION:
 			state.conditions = { ...state.conditions };

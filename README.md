@@ -13,7 +13,7 @@ Roadmap:
   - [x] Persistence between sessions
 - [ ] Multiple Character Management
 - [ ] Styling
-- [ ] Playbook
-- [ ] Powers
+- [x] Playbook
+- [x] Powers
 - [ ] In-app extensibility
 

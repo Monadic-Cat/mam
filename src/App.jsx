@@ -5,18 +5,20 @@ import Conditions from './Conditions';
 import Potential from './Potential';
 import Harm from './Harm';
 import ExportButton from './ExportButton';
-import CharacterName from './Character';
+import CharacterPrelude from './Character';
+import ExportPreview from './Preview';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<CharacterName />
+				<CharacterPrelude />
 				<Labels />
 				<Conditions />
 				<Potential />
 				<Harm />
 				<ExportButton />
+				{/*<ExportPreview />*/}
 			</div>
 		);
 	}

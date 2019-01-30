@@ -6,6 +6,8 @@ export const CHANGE_POTENTIAL = 'CHANGE_POTENTIAL';
 export const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
 export const SET_NAME = 'SET_NAME';
 export const SET_HERO_NAME = 'SET_HERO_NAME';
+export const SET_PLAYBOOK_NAME = 'SET_PLAYBOOK_NAME';
+export const SET_POWERS = 'SET_POWERS';
 export const SET_CONDITION = 'SET_CONDITION';
 
 export function setLabel(name, value) {
@@ -49,13 +51,21 @@ export function changePotential(amount = 0) {
 
 export function setName(name, type = "char") {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
-	let action_type = type == "char" ? SET_NAME :
-		type == "player" ? SET_PLAYER_NAME : 
-		type == "hero" ? SET_HERO_NAME : null;
+	let action_type = type === "char" ? SET_NAME :
+		type === "player" ? SET_PLAYER_NAME :
+		type === "hero" ? SET_HERO_NAME :
+		type === "playbook" ? SET_PLAYBOOK_NAME : null;
 	return {
 		type: action_type,
 		name
 	};
+}
+
+export function setPowers(names) {
+	return {
+		type: SET_POWERS,
+		names
+	}
 }
 
 export function setCondition(name, marked = true) {
