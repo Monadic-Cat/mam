@@ -2,8 +2,8 @@
 	player: ""
 	name: ""
 	heroName: ""
-	playbook: The Outsider
-	powers: Radical Shapeshifting, Telepathy and Mind Blasts, Power Mimicry, Power Negation
+	playbook: ""
+	powers: ""
 	labels: {
 		elements: [
 			{
