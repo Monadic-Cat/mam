@@ -31,6 +31,6 @@ export type CharacterState = {
   powers: string,
   labels: OrderedDict<string, LabelState>,
   conditions: OrderedDict<string, ConditionState>,
-  potential: number,
+  potential: PotentialState,
   harm: number
 }

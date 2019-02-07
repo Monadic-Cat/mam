@@ -1,6 +1,6 @@
 //@flow
 import { range } from 'lodash';
-import type { CharacterState } from './types';
+import type { CharacterState, PotentialState } from './types';
 
 /**
  * makeLabelLine
@@ -57,6 +57,12 @@ function groupPotential(n: number, groupSize: number): Array<number> {
 	return groups;
 }
 
+function makePotentialLine(potential: PotentialState): string {
+	let pots = groupPotential(potential.total, potential.groupSize);
+	let marked = (potential.used / potential.groupSize) | 0;
+	return pots.map((x, i) => (marked > i) ? `~~${x}~~`:x).join(" ");
+}
+
 /**
  * Generate Markdown from a character state.
  * @param {object} state - Character state
@@ -75,6 +81,7 @@ function makeSheet(state: CharacterState): string {
 		,makeLabelSheet(state.labels),
 		,`**Conditions:** ${makeConditionsLine(state.conditions)}`
 		,`**Harm:** ${state.harm}`
+		,`**Potential:** ${makePotentialLine(state.potential)}`
 	].join("\n");
 }
 

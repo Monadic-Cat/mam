@@ -19,7 +19,6 @@ class Potential extends Component {
 		}
 	}
 	markClick = (event, index) => {
-		console.log(this.props.marked > index);
 		this.props.markPotential(!(this.props.marked > index));
 	}
 	render() {
