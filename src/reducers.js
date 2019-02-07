@@ -6,8 +6,8 @@ import {
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL } from './actions';
 import type { CharacterState } from './types';
 
-export default function characterReducer(previousState: CharacterState, action: any) {
-	let state = { ...previousState };
+export default function characterReducer(previousState: CharacterState, action: any): CharacterState {
+	let state: CharacterState = { ...previousState };
 	switch(action.type) {
 		case ADD_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.
@@ -23,8 +23,8 @@ export default function characterReducer(previousState: CharacterState, action: 
 		case REMOVE_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.
 			state.labels = { ...state.labels };
-			let mark = state.labels.order[action.name];
-			for(let i = mark + 1; i < state.labels.elements.length; i++){
+			let mark: number = state.labels.order[action.name];
+			for(let i: number = mark + 1; i < state.labels.elements.length; i++){
 				state.labels.order[state.labels.elements[i].name]--;
 			}
 			state.labels.elements.splice(mark, 1);
