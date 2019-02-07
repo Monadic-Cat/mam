@@ -1,17 +1,19 @@
+//@flow
 import {
 	ADD_LABEL, REMOVE_LABEL, SET_LABEL,
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
 	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL } from './actions';
+import type { CharacterState } from './types';
 
-export default function characterReducer(previousState, action) {
+export default function characterReducer(previousState: CharacterState, action: any) {
 	let state = { ...previousState };
 	switch(action.type) {
 		case ADD_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.
 			state.labels = { ...state.labels };
-			state.labelOrder[action.name] = state.labels.length;
-			state.labels.push({ name: action.name, value: action.value });
+			state.labels.order[action.name] = state.labels.elements.length;
+			state.labels.elements.push({ name: action.name, value: action.value });
 			break;
 		case SET_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.
@@ -21,11 +23,11 @@ export default function characterReducer(previousState, action) {
 		case REMOVE_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.
 			state.labels = { ...state.labels };
-			let mark = state.labelOrder[action.name];
-			for(let i = mark + 1; i < state.labels.length; i++){
-				state.labelOrder[state.labels[i].name]--;
+			let mark = state.labels.order[action.name];
+			for(let i = mark + 1; i < state.labels.elements.length; i++){
+				state.labels.order[state.labels.elements[i].name]--;
 			}
-			state.labels.splice(mark, 1);
+			state.labels.elements.splice(mark, 1);
 			break;
 		case CHANGE_HARM:
 			state.harm += action.amount;
