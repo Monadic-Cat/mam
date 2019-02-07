@@ -1,4 +1,6 @@
+//@flow
 import { range } from 'lodash';
+import type { CharacterState } from './types';
 
 /**
  * makeLabelLine
@@ -38,13 +40,30 @@ function makeLabelSheet(labels) {
 function makeConditionsLine(conditions) {
 	return conditions.elements.map(x => x.marked ? `**${x.name}**`:`${x.name}`).join(" | ");
 }
+
+
+/**
+ * groupPotential
+ *
+ * @param {number}	n - number of Potential
+ * @param {number}	groupSize - Max size of groups
+ *
+ * @return {Array<number>}
+ *
+ */
+function groupPotential(n: number, groupSize: number): Array<number> {
+	let groups = range(0, n / groupSize | 0).map(x => groupSize);
+	groups.push(n % groupSize);
+	return groups;
+}
+
 /**
  * Generate Markdown from a character state.
  * @param {object} state - Character state
  *
  * @return {string} sheet
  */
-function makeSheet(state) {
+function makeSheet(state: CharacterState): string {
 	return [
 		`**Player Name:** ${state.player}`
 		,`**Character Name:** ${state.name}`
@@ -60,3 +79,4 @@ function makeSheet(state) {
 }
 
 export default makeSheet;
+export { groupPotential };

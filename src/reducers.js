@@ -2,7 +2,7 @@ import {
 	ADD_LABEL, REMOVE_LABEL, SET_LABEL,
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
 	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
-	SET_POWERS, SET_CONDITION } from './actions';
+	SET_POWERS, SET_CONDITION, MARK_POTENTIAL } from './actions';
 
 export default function characterReducer(previousState, action) {
 	let state = { ...previousState };
@@ -31,7 +31,14 @@ export default function characterReducer(previousState, action) {
 			state.harm += action.amount;
 			break;
 		case CHANGE_POTENTIAL:
-			state.potential += action.amount;
+			//Otherwise redux-persist will fail to see that potential has changed.
+			state.potential = { ...state.potential };
+			state.potential.total += action.amount;
+			break;
+		case MARK_POTENTIAL:
+			//Otherwise redux-persist will fail to see that potential has changed.
+			state.potential = { ...state.potential };
+			state.potential.used += action.used ? state.potential.groupSize:-state.potential.groupSize;
 			break;
 		case SET_NAME:
 			state.name = action.name;
@@ -49,6 +56,7 @@ export default function characterReducer(previousState, action) {
 			state.powers = action.names;
 			break;
 		case SET_CONDITION:
+			//Otherwise redux-persist will fail to see that conditions has changed.
 			state.conditions = { ...state.conditions };
 			state.conditions.elements[state.conditions.order[action.name]].marked = action.marked;
 			break;

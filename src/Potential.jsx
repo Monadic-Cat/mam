@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
-import { changePotential } from './actions';
+import { changePotential, markPotential } from './actions';
+import { groupPotential as group } from './sheet';
 
-function group(n, groupSize) {
-	let groups = range(0, n / groupSize | 0).map(x => groupSize);
-	groups.push(n % groupSize);
-	return groups;
-}
 
 class Potential extends Component {
 	handleClick = event => {
@@ -21,6 +17,10 @@ class Potential extends Component {
 			default:
 				console.log("Um.");
 		}
+	}
+	markClick = (event, index) => {
+		console.log(this.props.marked > index);
+		this.props.markPotential(!(this.props.marked > index));
 	}
 	render() {
 		return (
@@ -38,7 +38,16 @@ class Potential extends Component {
 				>-</button>
 			</td>
 			<td>Potential:</td>
-			{group(this.props.amount, 5).map((x,i) => <td key={i}>{x}</td>)}
+			{group(this.props.amount, 5).map(
+				(x,i) =>
+				<td
+					style={{
+						textDecoration: this.props.marked > i ? "line-through":null
+					}}
+					onClick={(e) => this.markClick(e, i)}
+					key={i}>
+					{x}
+				</td>)}
 			</tr></tbody></table>
 			</div>
 		);
@@ -46,9 +55,11 @@ class Potential extends Component {
 }
 
 const mapStateToProps = state => ({
-	amount: state.potential
+	amount: state.potential.total,
+	groupSize: state.potential.groupSize,
+	marked: (state.potential.used / state.potential.groupSize) | 0
 })
 
-const mapDispatchToProps = { changePotential }
+const mapDispatchToProps = { changePotential, markPotential }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Potential);

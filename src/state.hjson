@@ -66,6 +66,10 @@
 			Insecure: 4
 		}
 	}
-	potential: 0
+	potential: {
+		total: 0
+		used: 0
+		groupSize: 5
+	}
 	harm: 0
 }

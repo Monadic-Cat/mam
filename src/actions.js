@@ -1,8 +1,10 @@
+//@flow
 export const ADD_LABEL = 'ADD_LABEL';
 export const REMOVE_LABEL = 'REMOVE_LABEL';
 export const SET_LABEL = 'SET_LABEL';
 export const CHANGE_HARM = 'CHANGE_HARM';
 export const CHANGE_POTENTIAL = 'CHANGE_POTENTIAL';
+export const MARK_POTENTIAL = 'MARK_POTENTIAL';
 export const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
 export const SET_NAME = 'SET_NAME';
 export const SET_HERO_NAME = 'SET_HERO_NAME';
@@ -10,7 +12,7 @@ export const SET_PLAYBOOK_NAME = 'SET_PLAYBOOK_NAME';
 export const SET_POWERS = 'SET_POWERS';
 export const SET_CONDITION = 'SET_CONDITION';
 
-export function setLabel(name, value) {
+export function setLabel(name: string, value: number) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	if(value == undefined) throw new Error("NO VALUE EVERYONE DIES NOW.");
 	return {
@@ -19,7 +21,7 @@ export function setLabel(name, value) {
 	};
 }
 
-export function addLabel(name, value = 0) {
+export function addLabel(name: string, value: number = 0) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: ADD_LABEL,
@@ -27,7 +29,7 @@ export function addLabel(name, value = 0) {
 	};
 }
 
-export function removeLabel(name) {
+export function removeLabel(name: string) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: REMOVE_LABEL,
@@ -35,21 +37,28 @@ export function removeLabel(name) {
 	};
 }
 
-export function changeHarm(amount = 0) {
+export function changeHarm(amount: number = 0) {
 	return {
 		type: CHANGE_HARM,
 		amount
 	};
 }
 
-export function changePotential(amount = 0) {
+export function changePotential(amount: number = 0) {
 	return {
 		type: CHANGE_POTENTIAL,
 		amount
 	};
 }
 
-export function setName(name, type = "char") {
+export function markPotential(used: boolean = true) {
+	return {
+		type: MARK_POTENTIAL,
+		used
+	}
+}
+
+export function setName(name: string, type: string = "char") {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	let action_type = type === "char" ? SET_NAME :
 		type === "player" ? SET_PLAYER_NAME :
@@ -61,14 +70,14 @@ export function setName(name, type = "char") {
 	};
 }
 
-export function setPowers(names) {
+export function setPowers(names: Array<string>) {
 	return {
 		type: SET_POWERS,
 		names
 	}
 }
 
-export function setCondition(name, marked = true) {
+export function setCondition(name: string, marked: boolean = true) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: SET_CONDITION,
