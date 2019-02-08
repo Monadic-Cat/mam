@@ -3,8 +3,7 @@ import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import characterReducer from './reducers';
-//Default character state:
-import defaultState from './state';
+import { defaultCharacterState } from './types';
 
 const persistConfig = {
 	key: 'root',
@@ -16,7 +15,7 @@ const persistedReducer = persistReducer(persistConfig, characterReducer)
 export default () => {
 	let store = createStore(
 		persistedReducer,
-		defaultState,
+		defaultCharacterState(),
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	)
 	let persistor = persistStore(store)
