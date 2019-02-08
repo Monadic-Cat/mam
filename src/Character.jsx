@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setName, setPowers } from './actions';
@@ -9,7 +10,13 @@ import { setName, setPowers } from './actions';
 <textarea onInput={() => {this.style.height = "";this.style.height = this.scrollHeight + "px"}}></textarea>
 */
 
-class Powers extends Component {
+type PowerProps = {
+	name: string,
+	value: string,
+	setPowers: string => void
+}
+
+class Powers extends Component<PowerProps> {
 	handleChange = event => {
 		this.props.setPowers(event.target.value);
 	}
@@ -24,7 +31,17 @@ class Powers extends Component {
 	}
 }
 
-class CharacterNames extends Component {
+type NameProps = {
+	player: string,
+	name: string,
+	heroName: string,
+	playbook: string,
+	powers: string,
+	setName: (string, string) => void,
+	setPowers: string => void
+}
+
+class CharacterNames extends Component<NameProps> {
 	handleChange = event => {
 		this.props.setName(event.target.value, event.target.name);
 	}

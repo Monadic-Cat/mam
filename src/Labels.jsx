@@ -1,8 +1,9 @@
+//@flow
 import React, { Component } from 'react';
 import './Labels.css';
 import Label from './Label';
 
-class Labels extends Component {
+class Labels extends Component<{}> {
 	render() {
 		return (
 			<div>

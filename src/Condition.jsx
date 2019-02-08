@@ -1,18 +1,16 @@
+//@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCondition } from './actions';
 
-class Condition extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			marked: false
-		};
-	}
+type Props = {
+	name: string,
+	marked: boolean,
+	setCondition: (string, boolean) => void
+}
+
+class Condition extends Component<Props> {
 	handleClick = () => {
-		/*this.setState((state, props) => ({
-			marked: !state.marked
-		}));*/
 		this.props.setCondition(this.props.name, !this.props.marked);
 	}
 	render() {

@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react';
 import './App.css';
 import Labels from './Labels';
@@ -8,7 +9,7 @@ import ExportButton from './ExportButton';
 import CharacterPrelude from './Character';
 import ExportPreview from './Preview';
 
-class App extends Component {
+class App extends Component<{}> {
 	render() {
 		return (
 			<div className="App">

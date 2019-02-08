@@ -1,9 +1,15 @@
+//@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changeHarm } from './actions';
 
-class Harm extends Component {
+type Props = {
+	amount: number,
+	changeHarm: number => void
+}
+
+class Harm extends Component<Props> {
 	handleClick = event => {
 		switch (event.target.name) {
 			case "increment":
