@@ -1,9 +1,17 @@
+//@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { setLabel } from './actions';
+import type { CharacterState } from './types';
 
-class LabelCell extends Component {
+type CellProps = {
+	selected: boolean,
+	onClick: void => void,
+	children: number
+}
+
+class LabelCell extends Component<CellProps> {
 	onhover = (e) => {
 		if(!this.props.selected) e.target.classList.add("selected-cell");
 	}
@@ -24,8 +32,14 @@ class LabelCell extends Component {
 	}
 }
 
-class Label extends Component {
-	handleClick = (n) => {
+type LabelProps = {
+	name: string,
+	selected: number,
+	setLabel: (string, number) => void
+}
+
+class Label extends Component<LabelProps> {
+	handleClick = (n: number) : void => {
 		this.props.setLabel(this.props.name, n);
 		//this.props.dispatch(setLabel(this.props.name, n))
 	}
@@ -49,7 +63,7 @@ class Label extends Component {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: CharacterState, ownProps: LabelProps) => {
 	//Get this label from state.
 	let a = state.labels.elements[state.labels.order[ownProps.name]];
 	return {

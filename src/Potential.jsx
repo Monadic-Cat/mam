@@ -1,11 +1,19 @@
+//@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changePotential, markPotential } from './actions';
 import { groupPotential as group } from './sheet';
 
+type Props = {
+	amount: number,
+	groupSize: number,
+	marked: number,
+	changePotential: number => void,
+	markPotential: boolean => void
+}
 
-class Potential extends Component {
+class Potential extends Component<Props> {
 	handleClick = event => {
 		switch (event.target.name) {
 			case "increment":
