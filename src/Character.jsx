@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setName, setPowers } from './actions';
+import { withCharacterState } from './store';
 
 /*
 <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
@@ -107,7 +108,7 @@ class CharacterNames extends Component<NameProps> {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
 	return {
 		player: state.player,
 		name: state.name,
@@ -119,4 +120,4 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = { setName, setPowers }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CharacterNames)
+export default connect(withCharacterState(mapStateToProps), mapDispatchToProps)(CharacterNames)

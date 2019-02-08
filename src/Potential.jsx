@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changePotential, markPotential } from './actions';
 import { groupPotential as group } from './sheet';
+import { withCharacterState } from './store';
 
 type Props = {
 	amount: number,
@@ -69,4 +70,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { changePotential, markPotential }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Potential);
+export default connect(withCharacterState(mapStateToProps), mapDispatchToProps)(Potential);

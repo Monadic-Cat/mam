@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ClipboardJS from 'clipboard';
 import makeSheet from './sheet';
 import type { CharacterState } from './types';
+import { withCharacterState } from './store';
 
 type Props = {
 	state: CharacterState
@@ -29,4 +30,4 @@ class ExportButton extends Component<Props> {
 
 const mapStateToProps = state => ({ state })
 
-export default connect(mapStateToProps)(ExportButton)
+export default connect(withCharacterState(mapStateToProps))(ExportButton)

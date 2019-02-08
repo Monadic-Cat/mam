@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCondition } from './actions';
+import { withCharacterState } from './store';
 
 type Props = {
 	name: string,
@@ -25,12 +26,13 @@ class Condition extends Component<Props> {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps: Props) => {
 	let a = state.conditions.elements[state.conditions.order[ownProps.name]];
 	return {
+		...ownProps,
 		marked: a.marked
 	};
 }
 const mapDispatchToProps = { setCondition }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Condition)
+export default connect(withCharacterState(mapStateToProps), mapDispatchToProps)(Condition)

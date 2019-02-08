@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changeHarm } from './actions';
+import { withCharacterState } from './store';
 
 type Props = {
 	amount: number,
@@ -40,4 +41,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { changeHarm }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Harm)
+export default connect(withCharacterState(mapStateToProps), mapDispatchToProps)(Harm)

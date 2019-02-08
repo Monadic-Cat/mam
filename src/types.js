@@ -74,7 +74,9 @@ function mapArrayToOrderedDict<k, v>(arr: Array<k>, func: k => v): OrderedDict<k
 		order: ordering
 	}
 }
-
+/**
+ * Generate default CharacterState.
+ */
 export function defaultCharacterState(): CharacterState {
 	let defaultLabels: Array<string> = ["Danger", "Freak", "Savior", "Superior", "Mundane"];
 	let defaultConditions: Array<string> = ["Afraid", "Angry", "Guilty", "Hopeless", "Insecure"];
@@ -82,10 +84,22 @@ export function defaultCharacterState(): CharacterState {
 		...emptyCharacterState(),
 		labels: mapArrayToOrderedDict(defaultLabels, x => ({ name: x, value: 0 })),
 		conditions: mapArrayToOrderedDict(defaultConditions, x => ({name: x, marked: false}))
-	}
+	};
 }
 
 export type AppState = {
 	characters: Array<CharacterState>,
 	selectedCharacter?: number
+}
+
+function emptyAppState(): AppState {
+	return {
+		characters: []
+	}
+}
+export function defaultAppState(): AppState {
+	return {
+		characters: [defaultCharacterState()],
+		selectedCharacter: 0
+	}
 }

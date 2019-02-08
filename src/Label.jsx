@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { setLabel } from './actions';
 import type { CharacterState } from './types';
+import { withCharacterState } from './store';
 
 type CellProps = {
 	selected: boolean,
@@ -67,9 +68,10 @@ const mapStateToProps = (state: CharacterState, ownProps: LabelProps) => {
 	//Get this label from state.
 	let a = state.labels.elements[state.labels.order[ownProps.name]];
 	return {
+		...ownProps,
 		selected: a.value
 	};
 }
 const mapDispatchToProps = { setLabel }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Label)
+export default connect(withCharacterState(mapStateToProps), mapDispatchToProps)(Label)
