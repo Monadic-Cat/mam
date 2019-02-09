@@ -7,6 +7,7 @@ import Potential from './Potential';
 import Harm from './Harm';
 import ExportButton from './ExportButton';
 import CharacterPrelude from './Character';
+import CharacterSwitcher from './CharacterSwitcher';
 import ExportPreview from './Preview';
 
 class App extends Component<{}> {
@@ -19,6 +20,7 @@ class App extends Component<{}> {
 				<Potential />
 				<Harm />
 				<ExportButton />
+				<CharacterSwitcher />
 				{/*<ExportPreview />*/}
 			</div>
 		);

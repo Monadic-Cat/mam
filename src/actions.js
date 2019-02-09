@@ -1,4 +1,5 @@
 //@flow
+// Actions that hit CharacterState:
 export const ADD_LABEL = 'ADD_LABEL';
 export const REMOVE_LABEL = 'REMOVE_LABEL';
 export const SET_LABEL = 'SET_LABEL';
@@ -11,6 +12,8 @@ export const SET_HERO_NAME = 'SET_HERO_NAME';
 export const SET_PLAYBOOK_NAME = 'SET_PLAYBOOK_NAME';
 export const SET_POWERS = 'SET_POWERS';
 export const SET_CONDITION = 'SET_CONDITION';
+// Not those ^
+export const SWITCH_CHARACTER = 'SWITCH_CHARACTER';
 
 export function setLabel(name: string, value: number) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
@@ -82,5 +85,18 @@ export function setCondition(name: string, marked: boolean = true) {
 	return {
 		type: SET_CONDITION,
 		name, marked
+	}
+}
+
+export const SWITCH_CHARACTER_OPTIONS = {
+	FORWARD: 1,
+	BACKWARD: -1
+}
+export type SWITCH_CHARACTER_OPTION = $Keys<typeof SWITCH_CHARACTER_OPTIONS>
+
+export function switchCharacter(option: SWITCH_CHARACTER_OPTION){
+	return {
+		type: SWITCH_CHARACTER,
+		option
 	}
 }

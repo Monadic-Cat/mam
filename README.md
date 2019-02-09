@@ -11,9 +11,8 @@ Roadmap:
   - [x] Names
   - [x] Harm (extra mechanic in one of my groups)
   - [x] Persistence between sessions
-- [ ] Multiple Character Management
+- [x] Multiple Character Management
 - [ ] Styling
 - [x] Playbook
 - [x] Powers
 - [ ] In-app extensibility
-
