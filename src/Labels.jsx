@@ -1,7 +1,13 @@
 //@flow
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withCharacterState } from './store';
 import './Labels.css';
 import Label from './Label';
+
+type Props = {
+
+}
 
 class Labels extends Component<{}> {
 	render() {
@@ -9,15 +15,17 @@ class Labels extends Component<{}> {
 			<div>
 			<table className="Labels">
 			<tbody>
-				<Label name="Danger" />
-				<Label name="Freak" />
-				<Label name="Savior" />
-				<Label name="Superior" />
-				<Label name="Mundane" />
+				{this.props.labels.elements.map(
+					x => <Label name={x.name} key={x.name} />
+				)}
 			</tbody></table>
 			</div>
 		);
 	}
 }
 
-export default Labels;
+const mapStateToProps = ({labels}) => ({
+	labels
+})
+
+export default connect(withCharacterState(mapStateToProps))(Labels);
