@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setName, setPowers } from './actions';
 import { withCharacterState } from './store';
 import PlaybookDefaultButton from './PlaybookDefaultButton';
+import Playbooks from './playbooks';
 
 /*
 <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
@@ -89,7 +90,11 @@ class CharacterNames extends Component<NameProps> {
 							onChange={this.handleChange}
 							value={this.props.playbook}
 							name="playbook"
+							list="playbooks"
 						/>
+						<datalist id="playbooks">
+							{Object.keys(Playbooks()).map(x => <option key={x}> {x} </option>)}
+						</datalist>
 						<PlaybookDefaultButton />
 					</td>
 				</tr>
