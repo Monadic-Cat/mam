@@ -16,6 +16,7 @@ export const SET_POWERS = 'SET_POWERS';
 export const SET_CONDITION = 'SET_CONDITION';
 // Not those ^
 export const SWITCH_CHARACTER = 'SWITCH_CHARACTER';
+export const SELECT_CHARACTER = 'SELECT_CHARACTER';
 
 export function setLabel(name: string, value: number) {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
@@ -107,5 +108,12 @@ export function switchCharacter(option: SWITCH_CHARACTER_OPTION){
 	return {
 		type: SWITCH_CHARACTER,
 		option
+	}
+}
+
+export function selectCharacter(selection: number) {
+	return {
+		type: SELECT_CHARACTER,
+		selection
 	}
 }

@@ -4,7 +4,7 @@ import {
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
 	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL,
-	SWITCH_CHARACTER, REPLACE_LABELS } from './actions';
+	SWITCH_CHARACTER, REPLACE_LABELS, SELECT_CHARACTER } from './actions';
 import type { CharacterState, AppState } from './types';
 import { defaultCharacterState } from './types';
 import { SWITCH_CHARACTER_OPTIONS } from './actions';
@@ -74,17 +74,25 @@ export function characterReducer(previousState: CharacterState, action: any): Ch
 
 export default function rootReducer(previousState: AppState, action: any): AppState {
 	let state = { ...previousState };
-	if(action.type === SWITCH_CHARACTER) {
-		state.characters = [ ...state.characters ];
-		let nextInd = state.selectedCharacter + SWITCH_CHARACTER_OPTIONS[action.option];
-		if(nextInd < 0) return state;
-		else if (nextInd >= state.characters.length) {
-			state.characters = [ ...state.characters, defaultCharacterState() ];
-		}
-		state.selectedCharacter = nextInd;
-	} else {
-		state.characters[state.selectedCharacter] = characterReducer(state.characters[state.selectedCharacter], action);
-		state.characters = [...state.characters];
+	switch(action.type) {
+		case SWITCH_CHARACTER:
+			state.characters = [ ...state.characters ];
+			let nextInd = state.selectedCharacter + SWITCH_CHARACTER_OPTIONS[action.option];
+			if(nextInd < 0) return state;
+			else if (nextInd >= state.characters.length) {
+				state.characters = [ ...state.characters, defaultCharacterState() ];
+			}
+			state.selectedCharacter = nextInd;
+			break;
+		case SELECT_CHARACTER:
+			if(state.characters.length > action.selection) {
+				state.selectedCharacter = action.selection;
+			}
+			break;
+		default:
+			state.characters[state.selectedCharacter] = characterReducer(state.characters[state.selectedCharacter], action);
+			state.characters = [...state.characters];
+
 	}
 	return state;
 }
