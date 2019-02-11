@@ -5,11 +5,12 @@ import {
 	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL,
 	SWITCH_CHARACTER, REPLACE_LABELS, SELECT_CHARACTER } from './actions';
+import type { CharacterStateAction, Action } from './actions';
 import type { CharacterState, AppState } from './types';
 import { defaultCharacterState } from './types';
 import { SWITCH_CHARACTER_OPTIONS } from './actions';
 
-export function characterReducer(previousState: CharacterState, action: any): CharacterState {
+export function characterReducer(previousState: CharacterState, action: CharacterStateAction): CharacterState {
 	let state: CharacterState = { ...previousState };
 	switch(action.type) {
 		case ADD_LABEL:
@@ -72,7 +73,7 @@ export function characterReducer(previousState: CharacterState, action: any): Ch
 	return state;
 }
 
-export default function rootReducer(previousState: AppState, action: any): AppState {
+export default function rootReducer(previousState: AppState, action: Action): AppState {
 	let state = { ...previousState };
 	switch(action.type) {
 		case SWITCH_CHARACTER:

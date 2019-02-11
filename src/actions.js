@@ -17,8 +17,102 @@ export const SET_CONDITION = 'SET_CONDITION';
 // Not those ^
 export const SWITCH_CHARACTER = 'SWITCH_CHARACTER';
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
+// TYPING:
+// Begin Character State actions
 
-export function setLabel(name: string, value: number) {
+export type AddLabelAction = {
+	type: 'ADD_LABEL',
+	name: string,
+	value: number
+}
+
+export type RemoveLabelAction = {
+	type: 'REMOVE_LABEL',
+	name: string
+}
+
+export type SetLabelAction = {
+	type: 'SET_LABEL',
+	name: string,
+	value: number
+}
+
+export type ReplaceLabelsAction = {
+	type: 'REPLACE_LABELS',
+	labels: LabelDict
+}
+
+type QuantityAction<T> = {
+	type: T,
+	amount: number
+}
+
+export type ChangeHarmAction = QuantityAction<'CHANGE_HARM'>
+
+export type ChangePotentialAction = QuantityAction<'CHANGE_POTENTIAL'>
+
+export type MarkPotentialAction = {
+	type: 'MARK_POTENTIAL',
+	used: boolean
+}
+
+type SetNameAction<T> = {
+	type: T,
+	name: string
+}
+
+export type SetPlayerNameAction = SetNameAction<'SET_PLAYER_NAME'>
+
+export type SetCharacterNameAction = SetNameAction<'SET_NAME'>
+
+export type SetHeroNameAction = SetNameAction<'SET_HERO_NAME'>
+
+export type SetPlaybookNameAction = SetNameAction<'SET_PLAYBOOK_NAME'>
+
+export type SetPowersAction = {
+	type: 'SET_POWERS',
+	names: string
+}
+
+export type SetConditionAction = {
+	type: 'SET_CONDITION',
+	name: string,
+	marked: boolean
+}
+
+export type CharacterStateAction =
+	| AddLabelAction
+	| RemoveLabelAction
+	| SetLabelAction
+	| ReplaceLabelsAction
+	| ChangeHarmAction
+	| ChangePotentialAction
+	| MarkPotentialAction
+	| SetPlayerNameAction
+	| SetCharacterNameAction
+	| SetHeroNameAction
+	| SetPlaybookNameAction
+	| SetPowersAction
+	| SetConditionAction
+// End Character State actions
+
+export type SwitchCharacterAction = {
+	type: 'SWITCH_CHARACTER',
+	option: SWITCH_CHARACTER_OPTION
+}
+
+export type SelectCharacterAction = {
+	type: 'SELECT_CHARACTER',
+	selection: number
+}
+
+export type Action =
+	| CharacterStateAction
+	| SwitchCharacterAction
+	| SelectCharacterAction
+// END TYPING
+
+export function setLabel(name: string, value: number): SetLabelAction {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	if(value == undefined) throw new Error("NO VALUE EVERYONE DIES NOW.");
 	return {
@@ -27,14 +121,14 @@ export function setLabel(name: string, value: number) {
 	};
 }
 
-export function replaceLabels(labels: LabelDict) {
+export function replaceLabels(labels: LabelDict): ReplaceLabelsAction {
 	return {
 		type: REPLACE_LABELS,
 		labels
 	};
 }
 
-export function addLabel(name: string, value: number = 0) {
+export function addLabel(name: string, value: number = 0): AddLabelAction {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: ADD_LABEL,
@@ -42,7 +136,7 @@ export function addLabel(name: string, value: number = 0) {
 	};
 }
 
-export function removeLabel(name: string) {
+export function removeLabel(name: string): RemoveLabelAction {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: REMOVE_LABEL,
@@ -50,21 +144,21 @@ export function removeLabel(name: string) {
 	};
 }
 
-export function changeHarm(amount: number = 0) {
+export function changeHarm(amount: number = 0): ChangeHarmAction {
 	return {
 		type: CHANGE_HARM,
 		amount
 	};
 }
 
-export function changePotential(amount: number = 0) {
+export function changePotential(amount: number = 0): ChangePotentialAction {
 	return {
 		type: CHANGE_POTENTIAL,
 		amount
 	};
 }
 
-export function markPotential(used: boolean = true) {
+export function markPotential(used: boolean = true): MarkPotentialAction {
 	return {
 		type: MARK_POTENTIAL,
 		used
@@ -83,14 +177,14 @@ export function setName(name: string, type: string = "char") {
 	};
 }
 
-export function setPowers(names: Array<string>) {
+export function setPowers(names: string): SetPowersAction {
 	return {
 		type: SET_POWERS,
 		names
 	}
 }
 
-export function setCondition(name: string, marked: boolean = true) {
+export function setCondition(name: string, marked: boolean = true): SetConditionAction {
 	if(name == undefined) throw new Error("NO NAME EVERYONE DIES NOW.");
 	return {
 		type: SET_CONDITION,
@@ -104,14 +198,14 @@ export const SWITCH_CHARACTER_OPTIONS = {
 }
 export type SWITCH_CHARACTER_OPTION = $Keys<typeof SWITCH_CHARACTER_OPTIONS>
 
-export function switchCharacter(option: SWITCH_CHARACTER_OPTION){
+export function switchCharacter(option: SWITCH_CHARACTER_OPTION): SwitchCharacterAction {
 	return {
 		type: SWITCH_CHARACTER,
 		option
 	}
 }
 
-export function selectCharacter(selection: number) {
+export function selectCharacter(selection: number): SelectCharacterAction {
 	return {
 		type: SELECT_CHARACTER,
 		selection
