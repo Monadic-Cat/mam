@@ -23,14 +23,17 @@ export type PotentialState = {
 	groupSize: number
 }
 
+export type LabelDict = OrderedDict<string, LabelState>
+export type ConditionDict = OrderedDict<string, ConditionState>
+
 export type CharacterState = {
 	player: string,
 	name: string,
 	heroName: string,
 	playbook: string,
 	powers: string,
-	labels: OrderedDict<string, LabelState>,
-	conditions: OrderedDict<string, ConditionState>,
+	labels: LabelDict,
+	conditions: ConditionDict,
 	potential: PotentialState,
 	harm: number
 }
@@ -62,7 +65,7 @@ function emptyCharacterState(): CharacterState {
 		harm: 0
 	}
 }
-function mapArrayToOrderedDict<k, v>(arr: Array<k>, func: k => v): OrderedDict<k, v> {
+export function mapArrayToOrderedDict<k, v>(arr: Array<k>, func: (k, number) => v): OrderedDict<k, v> {
 	let ordering: {
 		[k]: number
 	} = {};
@@ -73,6 +76,17 @@ function mapArrayToOrderedDict<k, v>(arr: Array<k>, func: k => v): OrderedDict<k
 		elements: arr.map(func),
 		order: ordering
 	}
+}
+export function concatOrderedDicts<k, v>(a: OrderedDict<k, v>, b: OrderedDict<k, v>) {
+	let dict = {
+		elements: [ ...a.elements ],
+		order: { ...a.order }
+	}
+	Object.keys(b.order).map(x => {
+		dict.order[x] = b.order[x] + dict.elements.length;
+		dict.elements.push(b.elements[b.order[x]]);
+	})
+	return dict;
 }
 /**
  * Generate default CharacterState.

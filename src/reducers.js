@@ -4,7 +4,7 @@ import {
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
 	SET_PLAYER_NAME, SET_HERO_NAME, SET_PLAYBOOK_NAME,
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL,
-	SWITCH_CHARACTER } from './actions';
+	SWITCH_CHARACTER, REPLACE_LABELS } from './actions';
 import type { CharacterState, AppState } from './types';
 import { defaultCharacterState } from './types';
 import { SWITCH_CHARACTER_OPTIONS } from './actions';
@@ -22,6 +22,9 @@ export function characterReducer(previousState: CharacterState, action: any): Ch
 			//Otherwise redux-persist will fail to see that labels has changed.
 			state.labels = { ...state.labels };
 			state.labels.elements[state.labels.order[action.name]].value = action.value;
+			break;
+		case REPLACE_LABELS:
+			state.labels = action.labels;
 			break;
 		case REMOVE_LABEL:
 			//Otherwise redux-persist will fail to see that labels has changed.

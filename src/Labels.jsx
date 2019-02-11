@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withCharacterState } from './store';
-import type { OrderedDict, LabelState, CharacterState } from './types';
+import type { LabelDict, CharacterState } from './types';
 import './Labels.css';
 import Label from './Label';
 
 type Props = {
-	labels: OrderedDict<string, LabelState>
+	labels: LabelDict
 }
 
 class Labels extends Component<Props> {

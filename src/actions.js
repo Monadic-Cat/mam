@@ -1,8 +1,10 @@
 //@flow
+import type { LabelDict } from './types';
 // Actions that hit CharacterState:
 export const ADD_LABEL = 'ADD_LABEL';
 export const REMOVE_LABEL = 'REMOVE_LABEL';
 export const SET_LABEL = 'SET_LABEL';
+export const REPLACE_LABELS = 'REPLACE_LABELS';
 export const CHANGE_HARM = 'CHANGE_HARM';
 export const CHANGE_POTENTIAL = 'CHANGE_POTENTIAL';
 export const MARK_POTENTIAL = 'MARK_POTENTIAL';
@@ -21,6 +23,13 @@ export function setLabel(name: string, value: number) {
 	return {
 		type: SET_LABEL,
 		name, value
+	};
+}
+
+export function replaceLabels(labels: LabelDict) {
+	return {
+		type: REPLACE_LABELS,
+		labels
 	};
 }
 

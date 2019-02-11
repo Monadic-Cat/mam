@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setName, setPowers } from './actions';
 import { withCharacterState } from './store';
+import PlaybookDefaultButton from './PlaybookDefaultButton';
 
 /*
 <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
@@ -89,6 +90,7 @@ class CharacterNames extends Component<NameProps> {
 							value={this.props.playbook}
 							name="playbook"
 						/>
+						<PlaybookDefaultButton />
 					</td>
 				</tr>
 				<tr>
