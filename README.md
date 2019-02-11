@@ -16,5 +16,5 @@ Roadmap:
 - [x] Playbook
 - [x] Powers
 - [ ] In-app extensibility
-- [ ] Dropdowns for Playbooks (Requested by Shaman)
+- [x] Dropdowns for Playbooks (Requested by Shaman)
 - [ ] Playbook Features and Moves (Requested by Shaman)
