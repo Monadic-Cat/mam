@@ -83,7 +83,7 @@ export function concatOrderedDicts<k, v>(a: OrderedDict<k, v>, b: OrderedDict<k,
 		order: { ...a.order }
 	}
 	Object.keys(b.order).map(x => {
-		dict.order[x] = b.order[x] + dict.elements.length;
+		dict.order[x] = dict.elements.length;
 		dict.elements.push(b.elements[b.order[x]]);
 	})
 	return dict;
