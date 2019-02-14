@@ -1,6 +1,6 @@
 //@flow
 import React, { Component } from 'react';
-import './App.css';
+import './App.sass';
 import Labels from './Labels';
 import Conditions from './Conditions';
 import Potential from './Potential';

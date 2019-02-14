@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withCharacterState } from './store';
 import type { LabelDict, CharacterState } from './types';
-import './Labels.css';
+import './Labels.sass';
 import Label from './Label';
 
 type Props = {
