@@ -30,7 +30,7 @@ const easy_entry_playbooks: EasyEntry = {
 		normal: [-1, -1, 2, 0, 2]
 	},
 	"The Bull": {
-		normal: [2, 1, 1, 1, -1]
+		normal: [2, 1, -1, 1, -1]
 	},
 	"The Delinquent": {
 		normal: [0, 0, -1, 2, 1]
