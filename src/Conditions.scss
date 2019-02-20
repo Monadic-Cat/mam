@@ -1,3 +1,5 @@
+@import 'general';
+
 .Conditions {
 	border: 1px solid black;
 	user-select: none;
@@ -6,8 +8,7 @@
 .Condition {
 	border: 1px solid black;
 	text-align: center;
-	width: 5vw;
-	height: 5vw;
+	@include clickableSquare(15vw, 5vw);
 }
 
 .marked-condition {

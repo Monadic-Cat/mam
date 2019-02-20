@@ -1,7 +1,7 @@
 //@flow
 import React, { Component } from 'react';
 import Condition from './Condition';
-import './Conditions.css';
+import './Conditions.scss';
 
 
 

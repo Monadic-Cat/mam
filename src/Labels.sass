@@ -1,13 +1,11 @@
-@import 'general.scss'
+@import 'general'
 
 .Labels, .Label, .Label-Cell
 	border: 1px solid black
 	user-select: none
 
 .Label-Cell
-	+square(15vw)
-	@media (min-width: 900px)
-		+square(4vw)
+	+clickableSquare(15vw, 4vw)
 	text-align: center
 
 .selected-cell

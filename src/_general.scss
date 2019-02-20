@@ -2,3 +2,10 @@
 	width: $width;
 	height: $width;
 }
+
+@mixin clickableSquare($wide, $thin) {
+	@include square($wide);
+	@media (min-width: 900px) {
+		@include square($thin)
+	}
+}
