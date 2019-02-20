@@ -13,12 +13,6 @@ type CellProps = {
 }
 
 class LabelCell extends Component<CellProps> {
-	onhover = (e) => {
-		if(!this.props.selected) e.target.classList.add("selected-cell");
-	}
-	onhoveroff = (e) => {
-		if(!this.props.selected) e.target.classList.remove("selected-cell");
-	}
 	render() {
 		return (
 			<td
