@@ -5,6 +5,7 @@ import { range } from 'lodash';
 import { changePotential, markPotential } from './actions';
 import { groupPotential as group } from './sheet';
 import { withCharacterState } from './store';
+import './Potential.sass';
 
 type Props = {
 	amount: number,
@@ -49,9 +50,10 @@ class Potential extends Component<Props> {
 			{group(this.props.amount, 5).map(
 				(x,i) =>
 				<td
-					style={{
-						textDecoration: this.props.marked > i ? "line-through":null
-					}}
+					className={[
+						"Potential-Cell",
+						this.props.marked > i ? "used-cell":undefined
+					].join(" ")}
 					onClick={(e) => this.markClick(e, i)}
 					key={i}>
 					{x}
