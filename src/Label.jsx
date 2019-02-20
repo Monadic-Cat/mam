@@ -17,8 +17,6 @@ class LabelCell extends Component<CellProps> {
 		return (
 			<td
 				className={"Label-Cell" + (this.props.selected ? " selected-cell":"")}
-				onMouseOver={this.onhover}
-				onMouseOut={this.onhoveroff}
 				onClick = {this.props.onClick}
 			>
 				{this.props.children}
