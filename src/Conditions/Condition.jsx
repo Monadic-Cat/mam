@@ -1,8 +1,8 @@
 //@flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCondition } from './actions';
-import { withCharacterState } from './store';
+import { setCondition } from '../actions';
+import { withCharacterState } from '../store';
 
 type Props = {
 	name: string,

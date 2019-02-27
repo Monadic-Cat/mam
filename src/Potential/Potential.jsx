@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
-import { changePotential, markPotential } from './actions';
-import { groupPotential as group } from './sheet';
-import { withCharacterState } from './store';
+import { changePotential, markPotential } from '../actions';
+import { groupPotential as group } from '../sheet';
+import { withCharacterState } from '../store';
 import './Potential.sass';
 
 type Props = {

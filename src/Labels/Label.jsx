@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
-import { setLabel } from './actions';
-import type { CharacterState } from './types';
-import { withCharacterState } from './store';
+import { setLabel } from '../actions';
+import type { CharacterState } from '../types';
+import { withCharacterState } from '../store';
 
 type CellProps = {
 	selected: boolean,
