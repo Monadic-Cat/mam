@@ -28,8 +28,8 @@ const moves: Array<Move> = [
 			"spend your hold to name a character you observed and...:",
 			bulletList([
 				[
-					"...redirect their attack to another character or nowhere--",
-					"into a wall or the sky."
+					"...redirect their attack to another character or",
+					"nowhere--into a wall or the sky."
 				].join(" "),
 				"...cross a distance between them and you.",
 				"...stun them, close up or from a distance.",
