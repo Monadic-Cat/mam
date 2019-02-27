@@ -8,7 +8,7 @@ type Move = {
 }
 
 function bulletList(arr: Array<string>): string {
-	return arr.map(x => ` - ${x}`).join("\n");
+	return arr.map(x => `\n - ${x}`).join("");
 }
 function emph(s: string): string {
 	return `**${s}**`;
