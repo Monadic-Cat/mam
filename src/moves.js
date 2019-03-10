@@ -219,6 +219,123 @@ const moves: Array<Move> = [
 			"inflict a condition on the other, or both lose Influence over each",
 			"other, your choice. On a miss, they gain Influence over you."
 		].join(" ")
+	},
+	// Reformed Moves
+	{
+		name: "What the hell, hero",
+		body: [
+			"When you call out an injustice that a hero has perpetrated, roll",
+			"+ Danger. On a hit, take Influence over them. On a 7-9 choose, one.",
+			"On a 10+, choose two.",
+			bulletList([
+				"You get them to admit their wrongdoing",
+				"You win over an onlooker; take Influence over them",
+				"You don't turn their attention and anger onto yourself"
+			]),
+			"On a miss, they dismiss you; mark a condition (their choice),",
+			"shift Danger up, Savior down."
+		].join(" ")
+	},
+	{
+		name: "Wrong side of the tracks",
+		body: [
+			"You always get to ask an additional question when you",
+			`${emph("pierce the mask")} of a villain, even on a miss. When you`,
+			`${emph("pierce the mask")} of a hero (your call), add this question`,
+			`to the list: ${bulletList(["what was your darkest moment?"])}`
+		].join(" ")
+	},
+	{
+		name: "Not so different",
+		body: [
+			`When you ${emph("provoke someone")} to criminal or villainous action,`,
+			"you can use Danger instead of Superior."
+		].join(" ")
+	},
+	{
+		name: "Dark past",
+		body: [
+			"When you confess to a serious crime you committed as a villain",
+			"while in the presence of someone involved, shift Danger up and",
+			"any other Label down, say what you did, and choose one.",
+			bulletList([
+				"No one was hurt badly by the crime",
+				"You aren't in legal danger from the crime",
+				"You aren't being actively pursued for extralegal retribution"
+			])
+		].join(" ")
+	},
+	{
+		name: "Blowing off steam",
+		body: [
+			"When you commit a misdemeanor or small \"victimless\" crime, you may",
+			"clear a condition of your choice."
+		].join(" ")
+	},
+	{
+		name: "Do me a favor",
+		body: [
+			"When you go to an ordinary citizen you know for a favor, roll",
+			"+ Mundane. On a 10+, they'll lend you a hand. On a 7-9, they need",
+			"a promise up front. On a miss, you catch them up in your superpowered",
+			"nonsense, and they suffer for it."
+		].join(" ")
+	},
+	// Newborn Moves
+	{
+		name: "Not from around here",
+		body: [
+			"When you act clueless, goofy, or confused to get out of a sticky",
+			"mundane situation, roll + Freak. On a hit, you create an opportunity",
+			"a distrction, or a plausible excuse. On a 7-9, you also feel all the",
+			"weight of playing the clown and of the people staring at you. The GM",
+			"shifts one of your Labels up and one down. On a miss, no one is",
+			"fooled, and you've put yourself in their crosshairs."
+		].join(" ")
+	},
+	{
+		name: "Thermodynamic miracle",
+		body: [
+			`When you ${emph("comfort or support")} someone by telling them what`,
+			"makes them unique, roll + Freak instead of Mundane. If they open up",
+			"to you, shift Freak up and Mundane down. If they don't,",
+			"mark a condition."
+		].join(" ")
+	},
+	{
+		name: "A mind of their own",
+		body: [
+			"Your powers evolve and mutate. When you are facing an obstacle or",
+			"threat that your powers would not be able to deal with, you can mark",
+			"a condition to gain brand new abilities adapted to the situation.",
+			"You lose these new powers once the danger is gone."
+		].join(" ")
+	},
+	{
+		name: "Damage",
+		body: [
+			"You get an additional condition called Damaged. While marked, take a",
+			`+1 to ${emph("take a powerful blow.")}`,
+			"\nTo clear the Damaged condition, you need time, external help, or",
+			"special equipment or abilities."
+		].join(" ")
+	},
+	{
+		name: "Regeneration",
+		body: [
+			"When you're taken out, you can trigger an emergency regeneration",
+			"process. If you do, your body undergoes an unpredictable",
+			"transformation, and in mere moments, you're back on your feet and",
+			"ready to fight. Clear three conditions and choose three from the",
+			"list below:",
+			bulletList([
+				"Change your gender identity or presentation",
+				"Change your physical appearance",
+				"Forget all your lessons",
+				"Lose an important memory of a teammate; they lose Influence over you",
+				"Swap an ability with another one from the Newborn playbook"
+			])
+		].join(" ")
 	}
 ]
 
