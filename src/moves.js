@@ -168,5 +168,58 @@ const moves: Array<Move> = [
 			]),
 			"On a miss, you've played into your enemy's hands; watch the trap spring."
 		].join(" ")
+	},
+	// Star Moves
+	{
+		name: "The gossip mags",
+		body: [
+			"When you tap into the gossip and rumor of the celebrity industry for",
+			"information on an important city figure, roll + Superior. On a hit,",
+			"you can ask the GM questions. On a 10+, ask three. On a 7-9, ask one:",
+			bulletList([
+				"What are they up to?",
+				"What or who do they most care about?",
+				"What allies do they have? Enemies?",
+				"Where and when can I find them?",
+				"How could I make them vulnerable to me?"
+			]),
+			"On a miss, ask one anyway, but they hear about your interest in them."
+		].join(" ")
+	},
+	{
+		name: "Stage-fighting",
+		body: [
+			`When you ${emph("directly engage a threat")} with an audience`,
+			"watching, mark a condition to roll + Superior instead of Danger."
+		].join(" ")
+	},
+	{
+		name: "Time for the show",
+		body: [
+			"When you put on a flamboyant display of your poewrs, roll + Superior.",
+			"On a 7-9, name one NPC present. On a 10+, name two NPCs present.",
+			"The named NPCs must either volunteer help or information, express",
+			"admiration, or ask for your help, GM's choice. On a miss, your display",
+			"catches someone watching in the wrong way."
+		].join(" ")
+	},
+	{
+		name: "Take it from me",
+		body: [
+			`When you ${emph("comfort or support")} someone who openly admires`,
+			"your celebrity persona, roll + Superior instead of Mundane."
+		].join(" ")
+	},
+	{
+		name: "Cold and Cruel",
+		body: [
+			"When you shut someone down, roll + Superior. On a 10+, you either",
+			"inflict a condition on them, make them lose Influence over you, or",
+			"take Influence over them, your choice. On a 7-9, you either each",
+			"inflict a condition on the other, or both lose Influence over each",
+			"other, your choice. On a miss, they gain Influence over you."
+		].join(" ")
 	}
 ]
+
+export default moves;
