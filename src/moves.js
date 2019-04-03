@@ -33,7 +33,7 @@ function blankLine(): string {
 }
 
 const moves: Array<Move> = [
-	// Solider Moves
+	// Soldier Moves
 	{
 		name: "Before we get started",
 		body: [
@@ -336,6 +336,238 @@ const moves: Array<Move> = [
 				"Swap an ability with another one from the Newborn playbook"
 			])
 		].join(" ")
+	},
+	// Innocent Moves
+	{
+		name: "Making amends",
+		body: [
+			"When you make yourself vulnerable while",
+			emph("comforting or supporting"),
+			"someone you (or your future self) has fought or hurt, take +2 to",
+			"the roll. If you miss or they refuse to open up, mark a condition and",
+			"take a powerful blow."
+		].join(" ")
+	},
+	{
+		name: "Growing into power",
+		body: [
+			`When you ${emph("unleash your powers")} to do something your future`,
+			"self can do, mark a condition to roll + Savior instead of + Freak."
+		].join(" ")
+	},
+	{
+		name: "See it their way",
+		body: [
+			`When you ${emph("reject someone's Influence")} when they equate you`,
+			"with your future self, roll + Savior instead of + nothing. When",
+			"you accept someone's Influence when they equate you with your future",
+			"self, mark potential."
+		].join(" ")
+	},
+	{
+		name: "What's this thing?",
+		body: [
+			"When you ask for someone else's guidance on the modern world, they",
+			"must tell you what they think you should do or how you should act.",
+			"If you act that way, clear a condition and shift Mundane up and any",
+			"other Label down. If you act that way and it goes poorly,",
+			"mark potential."
+		].join(" ")
+	},
+	{
+		name: "White knight",
+		body: [
+			"When you give a speech on morality and heroism, you can",
+			`${emph("provoke someone")} with Savior instead of Superior.`
+		].join(" ")
+	},
+	{
+		name: "Martyr",
+		body: [
+			`When you ${emph("take a powerful blow")} while defending someone or`,
+			"something, you may shift Savior up and any other Label down."
+		].join(" ")
+	},
+	// Harbinger Moves
+	{
+		name: "Stick to the mission",
+		body: [
+			`When you ${emph("defend someone")} or something critically important`,
+			"to the future (tell us why), you may mark a condition to shift down",
+			"one Label and shift up Savior before the roll. If you do, you cannot",
+			`choose to clear a condition for the ${emph("defend")} move.`
+		].join(" ")
+	},
+	{
+		name: "Tomorrow's golden promise",
+		body: [
+			`When you ${emph("comfort or support someone")} with tales of what you`,
+			"think their future will be, you may roll + Savior instead of",
+			"+ Mundane. Mark a condition unless you are confident the stories are",
+			"true."
+		].join(" ")
+	},
+	{
+		name: "Applied history",
+		body: [
+			`When you ${emph("pierce the mask")} of someone you believe will shape`,
+			"the future, roll + Savior instead of + Mundane."
+		].join(" ")
+	},
+	{
+		name: "You haven't learned you can do that yet",
+		body: [
+			"When you tell a teammate about a new, never-before-performed",
+			"trick that they've never considered, spend a Team from the pool",
+			"to allow them to",
+			emph("unleash their powers, directly engage a threat,"),
+			`or ${emph("defend someone")} using your Superior as if it was their`,
+			"Label. Any costs or complications from their move affect you, as well."
+		].join(" ")
+	},
+	{
+		name: "I learned the solution in grade school",
+		body: [
+			`When you ${emph("unleash your powers")} to extend your senses or`,
+			"overcome an intellectual obstacle, you may roll + Superior instead",
+			"of + Freak."
+		].join(" ")
+	},
+	{
+		name: "21st century studies",
+		body: [
+			`When you ${emph("assess the situation")}, you may always ask`,
+			"\"what does the future know about this moment?\", even on a miss.",
+			"You take +1 ongoing to act on the answers."
+		].join(" ")
+	},
+	// Nomad Moves
+	{
+		name: "No good at being a kid",
+		body: "When you clear a condition, you can shift Labels, your choice."
+	},
+	{
+		name: "Watched C-beams glitter",
+		body: [
+			"When you make a claim about a strange situation or phenomenon based",
+			"on your experience, roll + Freak. On a hit, you were right; the GM",
+			"will tell you what opportunity your knowledge grants you. On a 7-9",
+			"your claim is incomplete, flawed, or tangential; the GM will tell you",
+			"how. On a miss, your experiences are deeply incomplete; the GM will",
+			"tell you what mistake your flawed understanding leads you to."
+		].join(" ")
+	},
+	{
+		name: "I hate calling the cavalry",
+		body: [
+			"When you call the allies you made beyond this world to ask them for",
+			"help, mark a condition and roll + Superior. On a hit, someone shows",
+			"up to lend you a hand. On a 7-9, they're dragging their own problems.",
+			"On a miss, your call reaches someone you wish it hadn't."
+		].join(" ")
+	},
+	{
+		name: "The littlest space bandit",
+		body: [
+			`When you ${emph("directly engage a threat")} that underestimates you,`,
+			"roll + + Superior instead of + Danger."
+		].join(" ")
+	},
+	{
+		name: "Out of this world",
+		body: [
+			"When you plug into the cosmic aether and tune out of this world,",
+			"roll + Freak. On a hit, you come to a new interesting insight about",
+			"your current problems and situation; the GM will tell you what.",
+			"On a 10+, you can also shift your own Labels according to match your",
+			"new understanding. On a miss, you realize something dangerous or",
+			"terrible; the GM will tell you what, and shift your Labels accordingly."
+		].join(" ")
+	},
+	{
+		name: "Sharpened eyes",
+		body: [
+			`When you ${emph("assess the situation,")} you may always ask one of`,
+			"the following questions, even on a miss:",
+			bulletList([
+				"What's my best way out/way in/way past?",
+				"What here would be handy to grab?",
+				"Who here is susceptible to my words?"
+			])
+		].join(" ")
+	},
+	// Scion Moves
+	{
+		name: "I'll show them",
+		body: [
+			`When you ${emph("defend someone")} who doesn't believe in you, you`,
+			"can always take Influence over them, even on a miss."
+		].join(" ")
+	},
+	{
+		name: "Changed sides",
+		body: [
+			"When you mislead or trick an enemy by pretending to be on their side,",
+			"roll + Danger. On a hit, they buy your charade for now. On a 7-9,",
+			"choose 1. On a 10+, choose 2.",
+			bulletList([
+				"You avoid having to provide concrete evidence",
+				"You create an opportunity",
+				"You expose a weakness or flaw"
+			]),
+			"On a miss, someone else watching comes to the worst possible",
+			"conclusion."
+		].join(" ")
+	},
+	{
+		name: "They don't deserve forgiveness",
+		body: [
+			"When you accuse an enemy of being irredeemable, you can mark two",
+			"conditions to take Influence over you away from them. When you",
+			`${emph("directly engage")}, someone who has no Infuence over you,`,
+			"you can always choose 1 additional option, even on a miss."
+		].join(" ")
+	},
+	{
+		name: "Moldable",
+		body: [
+			`When you ${emph("pierce the mask")} of someone whose respect you`,
+			"crave, you can always ask \"How could I gain Influence over you?\",",
+			"even on a miss. Take +1 ongoing to acting on the answer."
+		].join(" ")
+	},
+	{
+		name: "All the best stuff",
+		body: [
+			"You've compiled access to caches of equipment and weaponry other",
+			"supers have hidden in the city. When you access a cache, say whose",
+			"cache it is. If it's a hero's, roll + Savior.",
+			"If it's a villain's, roll + Danger. On a hit, you find a tool or",
+			"intel useful to your situation; the GM will detail. On a 7-9,",
+			"you leave evidence that you've been here. On a miss, you tripped",
+			"an alarm and they're coming; prepare to explain yourself."
+		].join(" ")
+	},
+	{
+		name: "White lies",
+		body: [
+			`When you ${emph("comfort or support")} someone by telling them how`,
+			"they are your role model as a hero, roll + Savior instead of",
+			"+ Mundane. On any hit, if they open up to you, take",
+			"Influence over them."
+		].join(" ")
+	},
+	// Transformed Moves
+	{
+		name: "I am not my body",
+		body: [
+			`When you ${emph("take a powerful physical blow")}, you may roll as if`,
+			"you had two fewer conditions marked. If you do, on a 10+ you must",
+			"choose to lose control of yourself in a terrible way."
+		].join(" ")
+	},
+	{
+		name: "Not human enough",
 	}
 ]
 
