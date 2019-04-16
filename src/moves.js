@@ -568,6 +568,109 @@ const moves: Array<Move> = [
 	},
 	{
 		name: "Not human enough",
+		body: [
+			`When you ${emph("directly engage a threat")} in a terrifying fashion`,
+			"mark a condition to choose an additional option, even on a miss."
+		].join(" ")
+	},
+	{
+		name: "Unstoppable",
+		body: [
+			"When you smash your way through scenery to get to or away from",
+			"something, roll + Danger. On a hit, the world breaks before you,",
+			"and you get what you want. On a 7-9, choose one: mark a",
+			"condition, leave something behind, or take something with you.",
+			"On a miss, you smash through, but leave devastation in your",
+			"wake or wind up somewhere worse, GM's choice."
+		].join(" ")
+	},
+	{
+		name: "Coming for you",
+		body: [
+			"When you mark a condition, take +1 forward against the person",
+			"you most blame for causing it."
+		].join(" ")
+	},
+	{
+		name: "Wish I could be",
+		body: [
+			`When you ${emph("comfort or support someone")}, if you tell them`,
+			"what you most envy about them, you can roll + Freak instead of",
+			"+ Mundane."
+		].join(" ")
+	},
+	{
+		name: "Be the monster",
+		body: [
+			"When you frighten, intimidate, or cow others with your monstrous",
+			"form, roll + Freak. On a hit, they are thrown off and make themselves",
+			"vulnerable to you, or they flee. On a 10+, choose one. On a 7-9,",
+			"choose two.",
+			bulletList([
+				"you frighten others you had not intended to scare",
+				"you hurt someone or break sometihng you shouldn't have",
+				[
+					"you feel like more of a monster afterward;",
+					"mark a condition (GM's choice)"
+				].join(" ")
+			]),
+			"On a miss, they react with violence, hatred, and paranoia, and",
+			"you suffer the brunt of it."
+		].join(" ")
+	},
+	// Protege Moves
+	{
+		name: "Been reading the files",
+		body: [
+			"You've learned about the superhuman world through your mentor's",
+			"resources. When you first encounter an important superpowered",
+			"phenomenon (your call), roll + Superior. On a hit, tell the team",
+			"one important detail you've learned from your studies. The GM will",
+			"tell you what, if anything, seems different from what you remember.",
+			"On a 10+, ask the GM a follow-up question; they will answer it",
+			"honestly. On a miss, the situation is well outside your base of",
+			"knowledge; the GM will tell you why."
+		].join(" ")
+	},
+	{
+		name: "Captain",
+		body: [
+			`When you ${emph("enter battle as a team")}, add an extra Team to the`,
+			"pool and carry +1 forward if you are the leader."
+		].join(" ")
+	},
+	{
+		name: "Venting frustration",
+		body: [
+			`When you ${emph("directly engage")} while you are Angry, you can roll`,
+			"you can roll + the Label your mentor denies and clear Angry."
+		].join(" ")
+	},
+	{
+		name: "Fireside chat",
+		body: [
+			"When you seek advice from your mentor, roll + the Label they embody.",
+			"On a hit they will tell you what to do. On a 10+, mark potential if you",
+			"follow their advice, and take +1 ongoing to follow through. On a 7-9,",
+			"you get +1 forward to see it through if you do it their way. On a miss,",
+			"they don't have time for you because something big has gone down; mark",
+			"a condition, GM's choice."
+		].join(" ")
+	},
+	{
+		name: "Be mindful of your surroundings",
+		body: [
+			`When you ${emph("assess the situation")} before entering into a fight,`,
+			"you may ask one additional question, even on a miss."
+		].join(" ")
+	},
+	{
+		name: "Heroic tradition",
+		body: [
+			"When you give someone the advice that you think your mentor would give,",
+			"you can roll + the Label your mentor embodies to",
+			`${emph("comfort or support someone")}, instead of rolling + Mundane.`
+		].join(" ")
 	}
 ]
 
