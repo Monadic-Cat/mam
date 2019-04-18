@@ -22,6 +22,13 @@ type Move = {
 	summary?: string
 }
 
+export function moveString(move: Move, target: Target): string {		
+	return [
+		`__${move.name}__`,
+		move.body
+	].join("\n");
+}
+
 function bulletList(arr: Array<string>): string {
 	return arr.map(x => `\n - ${x}`).join("");
 }

@@ -1,0 +1,22 @@
+.move {
+    border: 1px solid grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    overflow-wrap: break-word;
+    user-select: none;
+    &:hover {
+        // font-size: 1.1em;
+        // padding-top: 15px;
+        // padding-bottom: 15px;
+        background-color: #CCC;
+    }
+}
+
+.moveHead {
+    font-size: 1.2em;
+}
+
+.moveBody {
+    white-space: pre-wrap;
+}

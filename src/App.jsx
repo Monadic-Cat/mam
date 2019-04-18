@@ -25,6 +25,9 @@ import CharacterPrelude from './Character';
 import CharacterSwitcher from './CharacterSwitcher';
 import ExportPreview from './Preview';
 
+//import Moves from './moves';
+//console.log(Moves);
+
 class App extends Component<{}> {
 	render() {
 		return (

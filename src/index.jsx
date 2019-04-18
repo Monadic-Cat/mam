@@ -17,19 +17,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter as Router, Route, Link,
+			Switch, Redirect } from "react-router-dom";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import makeStore from './store';
 import { setLabel, changeHarm, changePotential, setName } from './actions';
+import { withNav } from './Navigation';
+import Moves from './Moves';
+import Notes from './Notes';
+import About from './About';
+import Disclaimer from './Disclaimer';
 
 const {store, persistor} = makeStore();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
-			<App />
-		</PersistGate>
+	  <PersistGate loading={null} persistor={persistor}>
+		 <Router>
+			<Switch>
+			  <Route exact path="/" component={withNav(App)}/>
+			  <Route path="/moves" component={withNav(Moves)}/>
+			  <Route path="/notes" component={withNav(Notes)}/>
+			  <Route path="/about" component={withNav(About)}/>
+			  <Route path="/disclaimer" component={withNav(Disclaimer)}/>
+			  <Redirect to="/"/>
+			</Switch>
+		 </Router>
+	  </PersistGate>
 	</Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

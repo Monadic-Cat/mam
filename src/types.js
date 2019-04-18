@@ -41,15 +41,15 @@ export type LabelDict = OrderedDict<string, LabelState>
 export type ConditionDict = OrderedDict<string, ConditionState>
 
 export type CharacterState = {
-	player: string,
-	name: string,
-	heroName: string,
-	playbook: string,
-	powers: string,
-	labels: LabelDict,
-	conditions: ConditionDict,
-	potential: PotentialState,
-	harm: number
+	+player: string,
+	+name: string,
+	+heroName: string,
+	+playbook: string,
+	+powers: string,
+	+labels: LabelDict,
+	+conditions: ConditionDict,
+	+potential: PotentialState,
+	+harm: number
 }
 
 function emptyOrderedDict<k, v>(): OrderedDict<k, v> {
@@ -116,8 +116,8 @@ export function defaultCharacterState(): CharacterState {
 }
 
 export type AppState = {
-	characters: Array<CharacterState>,
-	selectedCharacter?: number
+	+characters: Array<CharacterState>,
+	+selectedCharacter?: number
 }
 
 function emptyAppState(): AppState {
