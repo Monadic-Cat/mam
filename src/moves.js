@@ -22,7 +22,7 @@ type Move = {
 	summary?: string
 }
 
-export function moveString(move: Move, target: Target): string {		
+export function moveString(move: Move): string {		
 	return [
 		`__${move.name}__`,
 		move.body
