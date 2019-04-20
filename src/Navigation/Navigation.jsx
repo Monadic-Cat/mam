@@ -16,9 +16,9 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import Select, { Placeholder } from 'react-select';
 import { range } from 'lodash';
 import { withCharacterState } from '../store';
+import { selectCharacter } from '../actions';
 import hamburger from './hamburger.svg';
 import './navigation.scss';
 
@@ -54,18 +54,25 @@ function MenuItem({title, path}) {
 }
 
 const SummaryLine = connect(
-	({ characters, selectedCharacter }) => ({
-		characters, selectedCharacter
-	})
-)(function({ characters, selectedCharacter }) {
+	 ({ characters, selectedCharacter }) => ({
+		  characters, selectedCharacter
+	 }),
+    { selectCharacter }
+)(function({ characters, selectedCharacter, selectCharacter }) {
 	let name = characters[
 		selectedCharacter ? selectedCharacter : 0
 	].name;
+    console.log(name);
 	return (
-		<input
-		  value={name}
-		  name="name"
-		  list="names"/>
+		 <select value={name}
+               onChange={e => 
+                   selectCharacter(characters.findIndex((a) => {
+                           return a.name === e.target.value;
+                   }))}>
+         {characters.map(x =>
+                         <option value={x.name}>{x.name}</option>
+                        )}
+       </select>
 	);
 });
 
