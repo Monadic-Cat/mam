@@ -101,6 +101,9 @@ const easy_entry_playbooks: EasyEntry = {
 	"The Soldier": {
 		normal: [-1, 0, 2, 1, 0],
 		extra: [{ name: "Soldier", value: 2 }]
+	},
+	"The Persona": {
+		normal: [1, 1, 0, 1, -1]
 	}
 }
 
