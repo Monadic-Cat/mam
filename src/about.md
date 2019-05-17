@@ -1,15 +1,10 @@
 This is a fan made (I'm a fan) companion app for the MASKS games made by
 Magpie Gaming.
 
-If you want a copy of its source code, feel free to pop me
-an [email.](mailto:greenmonadcat@gmail.com)
+The source code is available on [GitHub!](https://github.com/Monadic-Cat/mam)
 
-Assuming I'm not inundated with spam, I'll reply with a tarball.
-(Or zip, if you say that in the email.)
-
-As usual, feel free to redistribute the code and use it as you
-please- the terms of the Affero GNU General Public License
-(version 3 or greater, at your option) apply.
+If you have any questions, feel free to open an issue there or pop me an [email.](mailto:greenmonadcat@gmail.com)
+Assuming I'm not inundated with spam, I'll respond within a few days.
 
 Now then, this is where I tell you what this thing stores on your
 machine. *dramatic pause*
