@@ -104,6 +104,9 @@ const easy_entry_playbooks: EasyEntry = {
 	},
 	"The Persona": {
 		normal: [1, 1, 0, 1, -1]
+	},
+	"The Host": {
+		normal: [2, 0, -1, 0, 1]
 	}
 }
 
