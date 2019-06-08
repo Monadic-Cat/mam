@@ -1,7 +1,6 @@
 {
   "name": "mam",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "clipboard": "^2.0.4",
     "lodash": "^4.17.11",
