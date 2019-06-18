@@ -52,14 +52,14 @@ export type CharacterState = {
 	+harm: number
 }
 
-function emptyOrderedDict<k, v>(): OrderedDict<k, v> {
+export function emptyOrderedDict<k, v>(): OrderedDict<k, v> {
 	return {
 		elements: [],
 		order: {}
 	}
 }
 // groupSize can never be allowed to be 0, we'll get Infinity which is an ungood
-function emptyPotentialState(groupSize: number = 5): PotentialState {
+export function emptyPotentialState(groupSize: number = 5): PotentialState {
 	return {
 		total: 0,
 		used: 0,

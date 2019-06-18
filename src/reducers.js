@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import { combineReducers } from 'redux';
 import {
 	ADD_LABEL, REMOVE_LABEL, SET_LABEL,
 	CHANGE_HARM, CHANGE_POTENTIAL, SET_NAME,
@@ -21,72 +22,121 @@ import {
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL,
 	SWITCH_CHARACTER, REPLACE_LABELS, SELECT_CHARACTER } from './actions';
 import type { CharacterStateAction, Action } from './actions';
-import type { CharacterState, AppState } from './types';
-import { defaultCharacterState } from './types';
+import type { LabelDict, PotentialState, LabelState, ConditionState, ConditionDict, CharacterState, AppState } from './types';
+import { defaultCharacterState, emptyOrderedDict, emptyPotentialState } from './types';
 import { SWITCH_CHARACTER_OPTIONS } from './actions';
 
-export function characterReducer(previousState: CharacterState, action: CharacterStateAction): CharacterState {
-	let state: CharacterState = { ...previousState };
+
+function labelsReducer(previousState: LabelDict = emptyOrderedDict<string, LabelState>(), action: CharacterStateAction): LabelDict {
+	let labels = { ...previousState };
 	switch(action.type) {
 		case ADD_LABEL:
-			//Otherwise redux-persist will fail to see that labels has changed.
-			state.labels = { ...state.labels };
-			state.labels.order[action.name] = state.labels.elements.length;
-			state.labels.elements.push({ name: action.name, value: action.value });
+			labels.order[action.name] = labels.elements.length;
+			labels.elements.push({ name: action.name, value: action.value });
 			break;
 		case SET_LABEL:
-			//Otherwise redux-persist will fail to see that labels has changed.
-			state.labels = { ...state.labels };
-			state.labels.elements[state.labels.order[action.name]].value = action.value;
+			labels.elements[labels.order[action.name]].value = action.value;
 			break;
 		case REPLACE_LABELS:
-			state.labels = action.labels;
+			labels = action.labels;
 			break;
 		case REMOVE_LABEL:
-			//Otherwise redux-persist will fail to see that labels has changed.
-			state.labels = { ...state.labels };
-			let mark: number = state.labels.order[action.name];
-			for(let i: number = mark + 1; i < state.labels.elements.length; i++){
-				state.labels.order[state.labels.elements[i].name]--;
+			let mark: number = labels.order[action.name];
+			for(let i: number = mark + 1; i < labels.elements.length; i++){
+				labels.order[labels.elements[i].name]--;
 			}
-			state.labels.elements.splice(mark, 1);
+			labels.elements.splice(mark, 1);
 			break;
-		case CHANGE_HARM:
-			state.harm += action.amount;
-			break;
+		default:
+			return previousState;
+	}
+	return labels;
+}
+
+function harmReducer(previousState: number = 0, action: CharacterStateAction): number {
+	if(action.type === CHANGE_HARM) {
+		return previousState + action.amount;
+	} else {
+		return previousState;
+	}
+}
+
+function potentialReducer(previousState: PotentialState = emptyPotentialState(), action: CharacterStateAction): PotentialState {
+	let potential = { ...previousState };
+	switch(action.type) {
 		case CHANGE_POTENTIAL:
-			//Otherwise redux-persist will fail to see that potential has changed.
-			state.potential = { ...state.potential };
-			state.potential.total += action.amount;
+			potential.total += action.amount;
 			break;
 		case MARK_POTENTIAL:
-			//Otherwise redux-persist will fail to see that potential has changed.
-			state.potential = { ...state.potential };
-			state.potential.used += action.used ? state.potential.groupSize:-state.potential.groupSize;
+			potential.used += action.used ? potential.groupSize:-potential.groupSize;
 			break;
-		case SET_NAME:
-			state.name = action.name;
-			break;
-		case SET_PLAYER_NAME:
-			state.player = action.name;
-			break;
-		case SET_HERO_NAME:
-			state.heroName = action.name;
-			break;
-		case SET_PLAYBOOK_NAME:
-			state.playbook = action.name;
-			break;
-		case SET_POWERS:
-			state.powers = action.names;
-			break;
-		case SET_CONDITION:
-			//Otherwise redux-persist will fail to see that conditions has changed.
-			state.conditions = { ...state.conditions };
-			state.conditions.elements[state.conditions.order[action.name]].marked = action.marked;
-			break;
+		default:
+			return previousState;
 	}
-	return state;
+	return potential;
 }
+
+function nameReducer(previousState: string = "", action: CharacterStateAction): string {
+	if(action.type === SET_NAME) {
+		return action.name;
+	} else {
+		return previousState;
+	}
+}
+
+function playerNameReducer(previousState: string = "", action: CharacterStateAction): string {
+	if(action.type === SET_PLAYER_NAME) {
+		return action.name;
+	} else {
+		return previousState;
+	}
+}
+
+function heroNameReducer(previousState: string = "", action: CharacterStateAction): string {
+	if(action.type === SET_HERO_NAME) {
+		return action.name;
+	} else {
+		return previousState;
+	}
+}
+
+function playbookReducer(previousState: string = "", action: CharacterStateAction): string {
+	if(action.type === SET_PLAYBOOK_NAME) {
+		return action.name;
+	} else {
+		return previousState;
+	}
+}
+
+function powersReducer(previousState: string = "", action: CharacterStateAction): string {
+	if(action.type === SET_POWERS) {
+		return action.names;
+	} else {
+		return previousState;
+	}
+}
+
+function conditionsReducer(previousState: ConditionDict = emptyOrderedDict<string, ConditionState>(), action: CharacterStateAction): ConditionDict {
+	let conditions = { ...previousState };
+	if(action.type === SET_CONDITION) {
+		conditions.elements[conditions.order[action.name]].marked = action.marked;
+		return conditions;
+	} else {
+		return previousState;
+	}
+}
+
+export const characterReducer = combineReducers({
+	player: playerNameReducer,
+	name: nameReducer,
+	heroName: heroNameReducer,
+	playbook: playbookReducer,
+	powers: powersReducer,
+	labels: labelsReducer,
+	conditions: conditionsReducer,
+	potential: potentialReducer,
+	harm: harmReducer,
+});
 
 export default function rootReducer(previousState: AppState, action: Action): AppState {
 	let state = { ...previousState };
