@@ -17,7 +17,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withCharacterState } from '../store';
-import type { LabelDict, CharacterState } from '../types';
+import type { LabelDict, CharacterState } from 'madap/lib/types';
 import './Labels.sass';
 import Label from './Label';
 

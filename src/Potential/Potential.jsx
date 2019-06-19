@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { changePotential, markPotential } from '../actions';
-import { groupPotential as group } from '../sheet';
+import { groupPotential as group } from 'madap/lib/sheet';
 import { withCharacterState } from '../store';
 import './Potential.sass';
 

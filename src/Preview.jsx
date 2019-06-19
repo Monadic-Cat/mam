@@ -15,7 +15,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import makeSheet from './sheet';
+import makeSheet from 'madap/lib/sheet';
 import { withCharacterState } from './store';
 
 class PreviewPane extends Component {

@@ -22,8 +22,8 @@ import {
 	SET_POWERS, SET_CONDITION, MARK_POTENTIAL,
 	SWITCH_CHARACTER, REPLACE_LABELS, SELECT_CHARACTER } from './actions';
 import type { CharacterStateAction, Action } from './actions';
-import type { LabelDict, PotentialState, LabelState, ConditionState, ConditionDict, CharacterState, AppState } from './types';
-import { defaultCharacterState, emptyOrderedDict, emptyPotentialState } from './types';
+import type { LabelDict, PotentialState, LabelState, ConditionState, ConditionDict, CharacterState, AppState } from 'madap/lib/types';
+import { defaultCharacterState, emptyOrderedDict, emptyPotentialState } from 'madap/lib/types';
 import { SWITCH_CHARACTER_OPTIONS } from './actions';
 
 

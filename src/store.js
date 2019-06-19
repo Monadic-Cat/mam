@@ -19,8 +19,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 import rootReducer from './reducers';
-import { defaultAppState } from './types';
-import type { AppState, CharacterState } from './types';
+import { defaultAppState } from 'madap/lib/types';
+import type { AppState, CharacterState } from 'madap/lib/types';
 
 export function withCharacterState<Props>(func: (CharacterState, Props) => Props) {
 		return (state: AppState, props: Props) => {

@@ -7500,6 +7500,13 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+madap@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/madap/-/madap-0.1.2.tgz#a8bb77a67311ed2c58d5f7aa2af4e6474de424f2"
+  integrity sha512-5HZFt+A8LptAcmZ7XvTcOeGKOc0XffE4+GwgarxPtREuH5H3kmGuXfy7f7KroAZouXgS2I4WDFaLMCAkvyyhMw==
+  dependencies:
+    lodash "^4.17.11"
+
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"

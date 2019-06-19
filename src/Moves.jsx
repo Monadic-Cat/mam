@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Markdown from 'react-markdown';
 import ClipboardJS from 'clipboard';
-import moves, { moveString } from './moves';
+import moves, { moveString } from 'madap/lib/moves';
 import './moves.scss';
 
 function Move({move}) {

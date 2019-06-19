@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import { setName, setPowers } from './actions';
 import { withCharacterState } from './store';
 import PlaybookDefaultButton from './PlaybookDefaultButton';
-import Playbooks from './playbooks';
+import Playbooks from 'madap/lib/playbooks';
 
 /*
 <textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>

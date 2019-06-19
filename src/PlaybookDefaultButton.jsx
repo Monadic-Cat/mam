@@ -17,7 +17,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { replaceLabels } from './actions';
 import { withCharacterState } from './store';
-import Playbooks from './playbooks';
+import Playbooks from 'madap/lib/playbooks';
 
 class PlaybookDefaultButton extends Component {
 	handleClick = event => {

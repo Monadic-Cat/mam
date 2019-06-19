@@ -17,8 +17,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ClipboardJS from 'clipboard';
-import makeSheet from './sheet';
-import type { CharacterState } from './types';
+import makeSheet from 'madap/lib/sheet';
+import type { CharacterState } from 'madap/lib/types';
 import { withCharacterState } from './store';
 
 type Props = {

@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { range } from 'lodash';
 import { setLabel } from '../actions';
-import type { CharacterState } from '../types';
+import type { CharacterState } from 'madap/lib/types';
 import { withCharacterState } from '../store';
 
 type CellProps = {
