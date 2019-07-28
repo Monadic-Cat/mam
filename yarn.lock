@@ -7539,10 +7539,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-madap@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/madap/-/madap-0.1.2.tgz#a8bb77a67311ed2c58d5f7aa2af4e6474de424f2"
-  integrity sha512-5HZFt+A8LptAcmZ7XvTcOeGKOc0XffE4+GwgarxPtREuH5H3kmGuXfy7f7KroAZouXgS2I4WDFaLMCAkvyyhMw==
+madap@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/madap/-/madap-0.1.3.tgz#04fd30361b27ac0e09345e495e72edc369574498"
+  integrity sha512-aPnIQT3cNHY133y2NQtVIb484A+7R6KJewatYwvQyQQPz5zl/k+LIl6f0Lt8JsmccOopX0v6M3ZjYn2hs+BqRA==
   dependencies:
     lodash "^4.17.11"
 

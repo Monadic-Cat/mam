@@ -4,7 +4,7 @@
   "dependencies": {
     "clipboard": "^2.0.4",
     "lodash": "^4.17.13",
-    "madap": "^0.1.2",
+    "madap": "^0.1.3",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
