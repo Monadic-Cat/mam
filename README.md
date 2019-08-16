@@ -18,3 +18,6 @@ Roadmap:
 - [ ] In-app extensibility
 - [x] Dropdowns for Playbooks (Requested by Shaman)
 - [ ] Playbook Features and Moves (Requested by Shaman)
+- [ ] Cross Device Syncing
+  - [ ] Viewing other peoples' sheets
+  - [ ] Automatic Influence between sheets and players
